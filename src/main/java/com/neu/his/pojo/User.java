@@ -5,8 +5,8 @@ public class User {
 	private String userName;
 	private String password;
 	private String realName;
-	private String useType;
-	private String docTitleID;
+	private int useType;
+	private int docTitleID;
 	private String isScheduling;
 	private int deptID;
 	private int registLeID;
@@ -48,19 +48,19 @@ public class User {
 		this.realName = realName;
 	}
 
-	public String getUseType() {
+	public int getUseType() {
 		return useType;
 	}
 
-	public void setUseType(String useType) {
+	public void setUseType(int useType) {
 		this.useType = useType;
 	}
 
-	public String getDocTitleID() {
+	public int getDocTitleID() {
 		return docTitleID;
 	}
 
-	public void setDocTitleID(String docTitleID) {
+	public void setDocTitleID(int docTitleID) {
 		this.docTitleID = docTitleID;
 	}
 

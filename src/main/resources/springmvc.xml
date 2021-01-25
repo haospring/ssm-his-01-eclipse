@@ -16,8 +16,6 @@
     
 	<!-- 开启springmvc注解编程，完成工程中包的扫描（支持spring的注解开发） -->
 	<mvc:annotation-driven />
-	<context:component-scan base-package="com.neu.his" use-default-filters="false">
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-	</context:component-scan>
+	<context:component-scan base-package="com.neu.his" />
     
 </beans>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neu.his.mapper.UserMapper">
+	<select id="getUserList" resultType="map">
+		select a.UserName,
+		a.RealName,
+		a.UseType,
+		a.DocTitleID,
+		a.IsScheduling,
+		a.DelMark,
+		b.*,
+		c.*,
+		d.*
+		from User a,ConstantItem b,Department c,RegistLevel d 
+		where a.DocTitleID=b.id and a.DeptID=c.id and a.RegistLeID=d.id
+		<if test="keywords!=null">
+			and (UserName like concat('%',#{keywords},'%')
+		</if>
+		<if test="keywords!=null">
+			or RealName like concat('%',#{keywords},'%'))
+		</if>
+		order by a.id limit #{page},#{count}
+	</select>
+	
+	<!-- 统计用户记录，针对getUserList -->
+	<select id="getUserCount" resultType="_int">
+		select count(*) from User
+		<where>
+			<if test="keywords!=null">
+				and username like concat('%',#{keywords},'%')
+			</if>
+			<if test="keywords!=null">
+				or realName like concat('%',#{keywords},'%')
+			</if>
+		</where>
+	</select>
+	
+	<!-- 统计用户记录，针对getUserList02 -->
+	<select id="getUserCount02" resultType="_int">
+		select count(*) from User
+		<where>
+			<if test="keywords!=null and keywords!=''">
+				and deptID=#{keywords}
+			</if>
+			<if test="keywords2!=null and keywords2!=''">
+				and registLeID=#{keywords2}
+			</if>
+			<if test="keywords3!=null and keywords3!=''">
+				and userName=#{keywords3}
+			</if>
+		</where>
+	</select>
+</mapper>

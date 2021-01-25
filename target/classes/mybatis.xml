@@ -4,12 +4,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<settings>
-		<setting name="logImpl" value="STDOUT_LOGGING"/>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
 	
 	<typeAliases>
-		<package name="com.neu.pojo"/>
+		<package name="com.neu.his.pojo"/>
 	</typeAliases>
 	
 </configuration>
